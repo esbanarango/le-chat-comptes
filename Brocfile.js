@@ -18,6 +18,14 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 // Bootstrap
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js');
+
+var bootstrapDir = 'bower_components/bootstrap-sass-official/assets';
+
+// select bootstrap JavaScript components to include
+var bootstrapComponents = ['dropdown', 'alert'];
+
+for (var index in bootstrapComponents) {
+  app.import(bootstrapDir + '/javascripts/bootstrap/' + bootstrapComponents[index] + '.js');
+}
 
 module.exports = app.toTree();
